@@ -1,10 +1,15 @@
 using Serilog;
 using EmployeeAdminPortal.Data;
 using Microsoft.EntityFrameworkCore;
+using EmployeeAdminPortal.Interfaces;
+using EmployeeAdminPortal.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
 var logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
