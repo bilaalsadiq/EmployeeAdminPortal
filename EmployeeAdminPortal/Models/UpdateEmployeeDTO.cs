@@ -1,6 +1,6 @@
 ﻿namespace EmployeeAdminPortal.Models
 {
-    public class AddEmployeeDTO
+    public class UpdateEmployeeDTO
     {
         public required string Name { get; set; }
         public required string Email { get; set; }
