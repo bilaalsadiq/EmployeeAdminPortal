@@ -34,6 +34,8 @@ namespace EmployeeAdminPortal.Controllers
             };
 
             _dbContext.Employees.Add(employeeEntity);
+            _dbContext.SaveChanges();
+            return Ok(employeeEntity);
         }
     }
 }
