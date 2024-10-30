@@ -22,6 +22,21 @@ namespace EmployeeAdminPortal.Controllers
             var result = _dbContext.Employees.ToList();
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("{id:guid}")]
+        public IActionResult GetEmployeeById(Guid id)
+        {
+            var employee = _dbContext.Employees.Find(id);
+
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(employee);
+        }
+
         [HttpPost]
         public IActionResult AddEmployee(AddEmployeeDTO addEmployeeDTO)
         {
